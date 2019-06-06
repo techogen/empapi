@@ -1,0 +1,62 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# employeeDetails
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Employees Collection [/employees]
+
+### List All Employees [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Manpal Singh",
+                "id": "1",
+                "mail": "manpal.singh@oracle.com"
+            },
+            {
+                "name": "Sri Aggarwal",
+                "id": "2",
+                "mail": "sri.aggarwal@oracle.com"
+            },
+            {
+                "name": "Ganesh Gupta",
+                "id": "3",
+                "mail": "ganesh.g.gupta@oracle.com"
+            }
+        ]
+
+## Add Employee [/employees/add]
+### Create a New Employee [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "name": "Manpal Singh",
+            "mail": "Test",
+            "address": {
+                "add1": "lane1",
+                "add2": "lane2",
+                "city": "Noida",
+                "state": "UP"
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /employee/1
+
+    + Body
+
+            {
+                "result": "success"
+            }
